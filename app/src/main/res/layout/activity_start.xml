@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="45dp"
-        android:text="GET Start"
+        android:text="GET Started"
         android:textColor="#E6F3EB"
         android:textSize="22sp"
         android:background="@drawable/start_btn"
