@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaptopDuniya">
-        <activity android:name=".DashBoardActivity"></activity>
+        <activity android:name=".AboutUsActivity"
+            android:theme="@style/Theme.LaptopDuniya.NoActionBar"/>
+        <activity
+            android:name=".DashBoardActivity"
+            android:theme="@style/Theme.LaptopDuniya.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.LaptopDuniya.NoActionBar" />

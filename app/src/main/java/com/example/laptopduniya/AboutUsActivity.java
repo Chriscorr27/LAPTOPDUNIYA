@@ -12,16 +12,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class DashBoardActivity extends AppCompatActivity {
+public class AboutUsActivity extends AppCompatActivity {
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
+        setContentView(R.layout.activity_about_us);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.appmenu,menu);
