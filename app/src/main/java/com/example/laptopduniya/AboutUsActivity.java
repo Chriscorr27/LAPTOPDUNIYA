@@ -12,14 +12,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class AboutUsActivity extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCallback {
     Toolbar toolbar;
+    GoogleMap map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,5 +60,16 @@ public class AboutUsActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        map = googleMap;
+
+        LatLng companyLocation = new LatLng(19.2434364,72.8548608);
+        map.addMarker(new MarkerOptions()
+                .position(companyLocation)
+                .title("Laptop Duniya"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(companyLocation));
     }
 }
