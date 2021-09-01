@@ -3,6 +3,7 @@ package com.example.laptopduniya;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,11 +25,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCallback {
     Toolbar toolbar;
     GoogleMap map;
+    LinearLayout contact_info_btn;
+    ConstraintLayout contact_info_box;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
         toolbar = findViewById(R.id.toolbar);
+        contact_info_box = findViewById(R.id.contact_info_box);
+        contact_info_btn = findViewById(R.id.contact_info_btn);
         setSupportActionBar(toolbar);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -71,5 +78,16 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
                 .position(companyLocation)
                 .title("Laptop Duniya"));
         map.moveCamera(CameraUpdateFactory.newLatLng(companyLocation));
+
+    }
+
+    public void showContactInfo(View view) {
+        contact_info_btn.setVisibility(View.GONE);
+        contact_info_box.setVisibility(View.VISIBLE);
+    }
+
+    public void showContactInfoBtn(View view) {
+        contact_info_btn.setVisibility(View.VISIBLE);
+        contact_info_box.setVisibility(View.GONE);
     }
 }
