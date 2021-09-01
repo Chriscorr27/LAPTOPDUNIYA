@@ -6,7 +6,7 @@
         android:title="Profile" />
     <item
         android:id="@+id/about_menu"
-        android:title="About Us" />
+        android:title="Contact Us" />
     <item
         android:id="@+id/logout_menu"
         android:title="Logout" />
