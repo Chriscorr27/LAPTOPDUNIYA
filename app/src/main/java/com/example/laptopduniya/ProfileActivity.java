@@ -3,32 +3,41 @@ package com.example.laptopduniya;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
-public class DashBoardActivity extends AppCompatActivity {
+import com.example.laptopduniya.db_helpers.LoginDBHelper;
+
+import java.util.Map;
+
+public class ProfileActivity extends AppCompatActivity {
+    LoginDBHelper dbHelper;
     Toolbar toolbar;
+    TextView name,email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
+        setContentView(R.layout.activity_profile);
         toolbar = findViewById(R.id.toolbar);
-
+        name=findViewById(R.id.name);
+        email=findViewById(R.id.email);
         setSupportActionBar(toolbar);
+
+        dbHelper=new LoginDBHelper(this);
+        SharedPreferences sharedPreferences = getSharedPreferences("auth",MODE_PRIVATE);
+        String email_text = sharedPreferences.getString("login_email","");
+        Log.d("profile_details",email_text);
+        Map<String,String> profileDetails = dbHelper.getUserData(email_text);
+        Log.d("profile_details",profileDetails.get("name"));
+        name.setText(profileDetails.get("name"));
+        email.setText(profileDetails.get("email"));
     }
 
     @Override

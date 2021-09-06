@@ -40,6 +40,7 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.appmenu,menu);
@@ -51,7 +52,12 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_menu:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,ProfileActivity.class));
+                finish();
+                break;
+            case R.id.home:
+                startActivity(new Intent(this,DashBoardActivity.class));
+                finish();
                 break;
             case R.id.about_menu:
                 startActivity(new Intent(this,AboutUsActivity.class));
@@ -68,7 +74,6 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
         }
         return true;
     }
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         map = googleMap;

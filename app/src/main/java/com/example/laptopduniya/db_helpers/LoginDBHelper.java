@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class LoginDBHelper extends SQLiteOpenHelper {
     public LoginDBHelper(Context context) {
@@ -43,6 +47,20 @@ public class LoginDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         @SuppressLint("Recycle") Cursor cursor =database.rawQuery("select * from users where email = ? and password = ?",new String[]{email,password});
         return cursor.getCount()>0;
+    }
+
+    public Map<String,String> getUserData(String email){
+        SQLiteDatabase database = this.getWritableDatabase();
+        @SuppressLint("Recycle") Cursor cursor =database.rawQuery("select * from users where email = ?",new String[]{email});
+        Map<String,String> data = new HashMap<>();
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            data.put("email",cursor.getString(0));
+            data.put("name",cursor.getString(1));
+
+        }
+        return data;
     }
 
 }
