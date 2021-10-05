@@ -13,8 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaptopDuniya">
-        <activity android:name=".ProfileActivity"
-            android:theme="@style/Theme.LaptopDuniya.NoActionBar"/>
+        <activity android:name=".LaptopDetailActivity" android:theme="@style/Theme.LaptopDuniya.NoActionBar"/>
+        <activity
+            android:name=".SetProfileActivity"
+            android:theme="@style/Theme.LaptopDuniya.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/Theme.LaptopDuniya.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

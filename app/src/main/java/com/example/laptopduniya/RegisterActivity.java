@@ -5,19 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.laptopduniya.db_helpers.LoginDBHelper;
+import com.example.laptopduniya.db_helpers.ProfileDBHelper;
+import com.example.laptopduniya.models.User;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText name,email,pass,repass;
-    LoginDBHelper dbHelper;
+    ProfileDBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.email_text);
         pass = findViewById(R.id.password1_text);
         repass = findViewById(R.id.password2_text);
-        dbHelper = new LoginDBHelper(this);
+        dbHelper = new ProfileDBHelper(this);
     }
     public void register_click(View view) {
         String name_text    = name.getText().toString();
@@ -57,8 +57,15 @@ public class RegisterActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("login_email",email_text);
                             editor.apply();
-                            startActivity(new Intent(this,DashBoardActivity.class));
-                            finish();
+                            User user = dbHelper.getUserData(email_text);
+                            if(user.getProfile_created()){
+                                startActivity(new Intent(this,DashBoardActivity.class));
+                                finish();
+                            }else{
+                                startActivity(new Intent(this,SetProfileActivity.class));
+                                finish();
+                            }
+
                         }else{
                             Toast.makeText(this, "error while adding user", Toast.LENGTH_SHORT).show();
                         }

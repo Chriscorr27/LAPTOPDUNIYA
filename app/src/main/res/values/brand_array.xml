@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="brand_array">
+        <item>"any"</item>
+        <item>"HP"</item>
+        <item>"ASUS"</item>
+        <item>"acer"</item>
+        <item>"Lenovo"</item>
+        <item>"DELL"</item>
+        <item>"MSI"</item>
+        <item>"MI"</item>
+        <item>"APPLE"</item>
+        <item>"REDMI"</item>
+    </string-array>
+</resources>

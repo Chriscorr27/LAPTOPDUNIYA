@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="size_array">
+        <item>"any"</item>
+        <item>"12 inch"</item>
+        <item>"13 inch"</item>
+        <item>"14 inch"</item>
+        <item>"15.6 inch"</item>
+        <item>"16 inch"</item>
+    </string-array>
+</resources>

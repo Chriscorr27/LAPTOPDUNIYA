@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hdd_capacity_array">
+        <item>"any"</item>
+        <item>"1 TB"</item>
+        <item>"256 GB"</item>
+        <item>"512 GB"</item>
+    </string-array>
+</resources>

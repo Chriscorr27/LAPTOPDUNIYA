@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ram_capacity_array">
+        <item>"any"</item>
+        <item>"4 GB"</item>
+        <item>"8 GB"</item>
+        <item>"16 GB"</item>
+        <item>"12 GB"</item>
+        <item>"32 GB"</item>
+        <item>"64 GB"</item>
+    </string-array>
+</resources>

@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.laptopduniya.db_helpers.LoginDBHelper;
+import com.example.laptopduniya.db_helpers.ProfileDBHelper;
+import com.example.laptopduniya.models.User;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity {
     EditText email,pass;
     TextView errorMsg;
-    LoginDBHelper dbHelper;
+    ProfileDBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         errorMsg = findViewById(R.id.errorMsg);
         email = findViewById(R.id.email_text);
         pass = findViewById(R.id.password_text);
-        dbHelper=new LoginDBHelper(this);
+        dbHelper=new ProfileDBHelper(this);
     }
 
     public void login_click(View view) {
@@ -47,8 +47,15 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("login_email",email_text);
                     editor.apply();
-                    startActivity(new Intent(this,DashBoardActivity.class));
-                    finish();
+                    User user = dbHelper.getUserData(email_text);
+                    if(user.getProfile_created()){
+                        startActivity(new Intent(this,DashBoardActivity.class));
+                        finish();
+                    }else{
+                        startActivity(new Intent(this,SetProfileActivity.class));
+                        finish();
+                    }
+
                 }else{
                     errorMsg.setVisibility(View.VISIBLE);
                 }

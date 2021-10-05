@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ram_type_array">
+        <item>"any"</item>
+        <item>"DDR4"</item>
+        <item>"DDR3"</item>
+        <item>"LPDDR4"</item>
+        <item>"LPDDR4X"</item>
+        <item>"LPDDR3"</item>
+    </string-array>
+</resources>
