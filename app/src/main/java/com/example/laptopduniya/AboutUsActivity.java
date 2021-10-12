@@ -55,6 +55,10 @@ public class AboutUsActivity extends AppCompatActivity implements OnMapReadyCall
                 startActivity(new Intent(this,ProfileActivity.class));
                 finish();
                 break;
+            case R.id.order_menu:
+                startActivity(new Intent(this,OrdersActivity.class));
+                finish();
+                break;
             case R.id.home:
                 startActivity(new Intent(this,DashBoardActivity.class));
                 finish();

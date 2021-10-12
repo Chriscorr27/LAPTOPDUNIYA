@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaptopDuniya">
-        <activity android:name=".LaptopDetailActivity" android:theme="@style/Theme.LaptopDuniya.NoActionBar"/>
+        <activity android:name=".OrdersActivity" android:theme="@style/Theme.LaptopDuniya.NoActionBar"/>
+        <activity
+            android:name=".LaptopDetailActivity"
+            android:theme="@style/Theme.LaptopDuniya.NoActionBar" />
         <activity
             android:name=".SetProfileActivity"
             android:theme="@style/Theme.LaptopDuniya.NoActionBar" />
@@ -23,7 +28,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDXX7YXkL3FBRhIvoTQ36b48WbEQqJRk8s" />
+            android:value="AIzaSyA5ZvWWjt65cSq6dHJR1zH3F0aP8N4EuuM" />
 
         <activity
             android:name=".AboutUsActivity"
@@ -45,6 +50,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.schibstedspain.leku.LocationPickerActivity"
+            android:label="@string/leku_title_activity_location_picker"
+            android:parentActivityName=".LaptopDetailActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/leku_searchable" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LaptopDetailActivity" />
         </activity>
     </application>
 

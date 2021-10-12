@@ -5,6 +5,9 @@
         android:id="@+id/profile_menu"
         android:title="Profile" />
     <item
+        android:id="@+id/order_menu"
+        android:title="Orders" />
+    <item
         android:id="@+id/home"
         android:title="Home Page" />
     <item

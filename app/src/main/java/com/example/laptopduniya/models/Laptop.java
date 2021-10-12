@@ -1,5 +1,7 @@
 package com.example.laptopduniya.models;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 public class Laptop {
@@ -28,6 +30,10 @@ public class Laptop {
 
     public Laptop() {
     }
+
+    public Laptop(int id, String title, ArrayList<String> imgs, String brand, String ram_type, String ram_capacity, String ssd_capacity, String hdd_capacity, String size, String weight, Boolean ssd_present, Boolean hdd_present, String total_price) {
+    }
+
 
     public int getId() {
         return id;

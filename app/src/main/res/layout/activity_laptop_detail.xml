@@ -6,19 +6,32 @@
     android:layout_height="match_parent"
     android:background="#E5F8EB"
     tools:context=".LaptopDetailActivity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rent_layout">
+        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:id="@+id/detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/rent_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/imagepager_main"
                 android:layout_width="match_parent"
@@ -27,175 +40,197 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="#212522"
-                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="10dp"
-                android:text=""/>
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="#212522"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/price_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
-                android:textSize="25sp"
+                android:layout_marginTop="10dp"
+                android:text="₹ 4000 / day"
                 android:textColor="#212522"
-                android:text="₹ 4000 / day"/>
+                android:textSize="25sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Brand"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/brand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HP"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="HP"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Size"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15.6 inch"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="15.6 inch"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Weight"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.15 Kg"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="2.15 Kg"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Ram Type"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/ram_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DDR4"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="DDR4"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Ram Capatity"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/ram_capacity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8 GB"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="8 GB"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ssd_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="SSD Capacity"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/ssd_capacity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="512 GB"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="512 GB"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/hdd_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="HDD Capacity"
                     android:textColor="@color/black"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/hdd_capacity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="512 GB"
-                    android:textSize="18dp"
                     android:layout_marginStart="50dp"
-                    android:textColor="@color/black"/>
+                    android:text="512 GB"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -205,17 +240,139 @@
         android:id="@+id/rent_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="#315533"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:onClick="show_order_page"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#E7F8E7"
             android:layout_gravity="center_horizontal"
             android:text="Rent"
+            android:textColor="#E7F8E7"
             android:textSize="40dp" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/order_page"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="10dp"
+        android:background="#A3F8A6"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Address"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/address_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView17" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/select_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#70F175"
+            android:onClick="show_map"
+            android:padding="10dp"
+            android:text="Select address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_text" />
+
+        <TextView
+            android:id="@+id/start_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="start-date :\nyyyy-mm-dd"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_address" />
+
+        <TextView
+            android:id="@+id/end_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="end-date :\nyyyy-mm-dd"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/select_address" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#70F175"
+            android:onClick="select_data"
+            android:padding="10dp"
+            android:text="Select date range"
+            app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end_date" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#47F14F"
+            android:onClick="cancel_order"
+            android:text="Cancel"
+            android:textColor="#4A504B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#47F14F"
+            android:onClick="rent_order"
+            android:text="Rent"
+            android:textColor="#4A504B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="205dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

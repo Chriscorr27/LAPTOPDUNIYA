@@ -30,7 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity {
     ProfileDBHelper dbHelper;
     Toolbar toolbar;
-    TextView name,email,email_profile,is_student,phone_profile,gender,dob,phone;
+    TextView name,email,email_profile,is_student,phone_profile,gender,dob,phone,idcard_number;
     CircleImageView profile_pic;
     LinearLayout idcard_layout;
     AppCompatButton add_student_btn;
@@ -51,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         phone=findViewById(R.id.phone);
         idcard_layout=findViewById(R.id.idCardLayout);
         add_student_btn=findViewById(R.id.add_student_btn);
+        idcard_number = findViewById(R.id.idcard_number);
         setSupportActionBar(toolbar);
 
         dbHelper=new ProfileDBHelper(this);
@@ -74,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
             idcard_layout.setVisibility(View.VISIBLE);
             is_student.setVisibility(View.VISIBLE);
             idcard_pic = Uri.parse(profile.getIdcard_pic());
+            idcard_number.setText(profile.getIdcard_number());
         }
     }
 
@@ -89,6 +91,10 @@ public class ProfileActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.profile_menu:
                 startActivity(new Intent(this,ProfileActivity.class));
+                finish();
+                break;
+            case R.id.order_menu:
+                startActivity(new Intent(this,OrdersActivity.class));
                 finish();
                 break;
             case R.id.home:

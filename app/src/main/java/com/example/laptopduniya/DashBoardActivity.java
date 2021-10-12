@@ -136,7 +136,7 @@ public class DashBoardActivity extends AppCompatActivity {
                                     images.add(img_array.getString(j));
 //                                    Log.d("Response",img_array.getString(i));
                                 }
-                                Laptop laptop = new Laptop(1,title,images,brand,ram_type,ram_capacity,ssd_capacity,hdd_capacity,size,weight,ssd_present,hdd_present,total_price,price);
+                                Laptop laptop = new Laptop(id,title,images,brand,ram_type,ram_capacity,ssd_capacity,hdd_capacity,size,weight,ssd_present,hdd_present,total_price,price);
                                 list.add(laptop);
                             }
                             laptopAdapter = new LaptopAdapter(list,getApplicationContext());
@@ -173,6 +173,10 @@ public class DashBoardActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.profile_menu:
                 startActivity(new Intent(this,ProfileActivity.class));
+                finish();
+                break;
+            case R.id.order_menu:
+                startActivity(new Intent(this,OrdersActivity.class));
                 finish();
                 break;
             case R.id.home:

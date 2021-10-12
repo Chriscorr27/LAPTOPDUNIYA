@@ -11,4 +11,5 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="your_api_key">"AIzaSyDXX7YXkL3FBRhIvoTQ36b48WbEQqJRk8s"</string>
 </resources>
