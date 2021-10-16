@@ -37,13 +37,48 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:layout_marginHorizontal="5dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total amont :"
+                        android:textSize="15sp"
+                        android:textColor="#5C675D"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginStart="15dp"/>
+
+                    <TextView
+                        android:id="@+id/total_amount_dis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 4000"
+                        android:textSize="15sp"
+                        android:textColor="#5C675D"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginStart="5dp"/>
+                    <TextView
+                        android:id="@+id/dis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-10%"
+                        android:visibility="gone"
+                        android:textSize="15sp"
+                        android:textColor="#5C675D"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginStart="5dp"/>
+                </LinearLayout>
                 <TextView
                     android:id="@+id/total_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total amont : ₹ 4000"
+                    android:text="₹ 4000"
+                    android:visibility="gone"
                     android:textSize="15sp"
                     android:textColor="#5C675D"
+                    android:background="@drawable/strike_through"
                     android:layout_marginTop="7dp"
                     android:layout_marginStart="15dp"/>
                 <TextView

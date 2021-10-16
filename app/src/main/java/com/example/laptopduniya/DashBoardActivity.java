@@ -128,7 +128,7 @@ public class DashBoardActivity extends AppCompatActivity {
                                 String size = jsonObject.getString("size");
                                 String weight = jsonObject.getString("weight");
                                 int price = jsonObject.getInt("price");
-                                int total_price = jsonObject.getInt("total_price");
+                                int total_price = 0;
                                 ArrayList<String> images = new ArrayList<>();
                                 JSONArray img_array = jsonObject.getJSONArray("imgs");
 //                                Log.d("Response",img_array.toString());
@@ -142,9 +142,11 @@ public class DashBoardActivity extends AppCompatActivity {
                             laptopAdapter = new LaptopAdapter(list,getApplicationContext());
                             laptop_rv.setAdapter(laptopAdapter);
                             laptop_rv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
+                            laptop_rv.setVisibility(View.VISIBLE);
+                            findViewById(R.id.pb).setVisibility(View.GONE);
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            findViewById(R.id.pb).setVisibility(View.GONE);
                         }
                     }
                 }, new Response.ErrorListener() {

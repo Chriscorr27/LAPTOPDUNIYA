@@ -88,11 +88,13 @@ public class OrdersActivity extends AppCompatActivity {
                                 String weight = laptop_json.getString("weight");
                                 int price = laptop_json.getInt("price");
                                 JSONArray img_array = laptop_json.getJSONArray("imgs");
-                                int total_price = laptop_json.getInt("total_price");
+                                int total_price = 0;
                                 String status = order_json.getString("status");
                                 String start_date = order_json.getString("start_date");
                                 String end_date = order_json.getString("end_date");
                                 String total_amount = order_json.getString("total_price");
+                                String total_amount_dis = order_json.getString("total_price_dis");
+                                Boolean is_student = order_json.getBoolean("is_student");
                                 String address = order_json.getString("address");
                                 String lat = order_json.getString("lat");
                                 String lon = order_json.getString("lon");
@@ -101,7 +103,7 @@ public class OrdersActivity extends AppCompatActivity {
                                     imgs.add(img_array.getString(j));
                                 }
                                 Laptop laptop = new Laptop(id,title,imgs,brand,ram_type,ram_capacity,ssd_capacity,hdd_capacity,size,weight,ssd_present,hdd_present,price,total_price);
-                                Order order = new Order(start_date,end_date,total_amount,status,lat,lon,laptop);
+                                Order order = new Order(start_date,end_date,total_amount,status,lat,lon,laptop,total_amount_dis,is_student);
                                 order_list.add(order);
                             }
                             Collections.reverse(order_list);

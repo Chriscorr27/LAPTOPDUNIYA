@@ -47,7 +47,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         Order order = list.get(position);
         Laptop laptop = order.getLaptop();
         holder.title.setText(laptop.getTitle());
-        holder.total_amount.setText("Total amont : ₹ "+order.getTotal_amount());
+        holder.total_amount.setText("₹ "+order.getTotal_amount());
+        holder.total_amount_dis.setText("₹ "+order.getTotal_amount_dis());
+        if(order.getIs_student()){
+            holder.total_amount.setVisibility(View.VISIBLE);
+            holder.dis.setVisibility(View.VISIBLE);
+        }
         holder.status.setText(order.getStatus());
         holder.dates.setText(order.getStart_date()+" to "+order.getEnd_date());
         if(laptop.getImgs().size()>0)
@@ -62,13 +67,15 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView card_view;
         ImageView img;
-        TextView title,total_amount,dates,status;
+        TextView title,total_amount,dates,status,total_amount_dis,dis;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             card_view = itemView.findViewById(R.id.laptop_card);
             img = itemView.findViewById(R.id.img);
             title = itemView.findViewById(R.id.title);
             total_amount = itemView.findViewById(R.id.total_amount);
+            total_amount_dis = itemView.findViewById(R.id.total_amount_dis);
+            dis = itemView.findViewById(R.id.dis);
             dates = itemView.findViewById(R.id.dates);
             status = itemView.findViewById(R.id.status);
         }
