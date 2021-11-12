@@ -116,42 +116,42 @@ public class ProfileActivity extends AppCompatActivity {
         profile_uri = Uri.parse(profile.getProfilePic());
         profile_pic.setImageURI(profile_uri);
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        retrofitAPI = retrofit.create(APIService.class);
-//        RequestBody email = RequestBody.create(MediaType.parse("text/plain"),user.getEmail());
+//         retrofit = new Retrofit.Builder()
+//                 .baseUrl(url)
+//                 .addConverterFactory(GsonConverterFactory.create())
+//                 .build();
+//         retrofitAPI = retrofit.create(APIService.class);
+// //        RequestBody email = RequestBody.create(MediaType.parse("text/plain"),user.getEmail());
 
-        Call<StudentVerify> call =  retrofitAPI.getStudent(user.getEmail());;
-        call.enqueue(new Callback<StudentVerify>() {
-            @Override
-            public void onResponse(Call<StudentVerify> call, Response<StudentVerify> response) {
-                StudentVerify r = response.body();
-                Log.d("img",Boolean.toString(r.getIs_verified()));
-                Log.d("img",Boolean.toString(r.getEmail().equals("")));
-                Log.d("img","email : "+r.getEmail());
-                if(!r.getEmail().equals("")){
-                    idcard_layout.setVisibility(View.VISIBLE);
-                    idcard_pic = r.getId_pic();
-                    idcard_number.setText(r.getId_number());
-                        if(r.getIs_verified()){
-                            is_student.setVisibility(View.VISIBLE);
-                            findViewById(R.id.not_verified).setVisibility(View.GONE);
-                            findViewById(R.id.add_id).setVisibility(View.GONE);
-                        }
-                    }
-                findViewById(R.id.pb1).setVisibility(View.GONE);
-                main_layout.setVisibility(View.VISIBLE);
-            }
+//         Call<StudentVerify> call =  retrofitAPI.getStudent(user.getEmail());;
+//         call.enqueue(new Callback<StudentVerify>() {
+//             @Override
+//             public void onResponse(Call<StudentVerify> call, Response<StudentVerify> response) {
+//                 StudentVerify r = response.body();
+//                 Log.d("img",Boolean.toString(r.getIs_verified()));
+//                 Log.d("img",Boolean.toString(r.getEmail().equals("")));
+//                 Log.d("img","email : "+r.getEmail());
+//                 if(!r.getEmail().equals("")){
+//                     idcard_layout.setVisibility(View.VISIBLE);
+//                     idcard_pic = r.getId_pic();
+//                     idcard_number.setText(r.getId_number());
+//                         if(r.getIs_verified()){
+//                             is_student.setVisibility(View.VISIBLE);
+//                             findViewById(R.id.not_verified).setVisibility(View.GONE);
+//                             findViewById(R.id.add_id).setVisibility(View.GONE);
+//                         }
+//                     }
+//                 findViewById(R.id.pb1).setVisibility(View.GONE);
+//                 main_layout.setVisibility(View.VISIBLE);
+//             }
 
-            @Override
-            public void onFailure(Call<StudentVerify> call, Throwable t) {
-                Log.d("img",t.getLocalizedMessage());
-                pb.setVisibility(View.GONE);
-                id_layout.setVisibility(View.VISIBLE);
-            }
-        });
+//             @Override
+//             public void onFailure(Call<StudentVerify> call, Throwable t) {
+//                 Log.d("img",t.getLocalizedMessage());
+//                 pb.setVisibility(View.GONE);
+//                 id_layout.setVisibility(View.VISIBLE);
+//             }
+//         });
 
 
 
